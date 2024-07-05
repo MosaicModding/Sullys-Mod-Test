@@ -6,11 +6,12 @@
 # https://github.com/actions/labeler
 
 name: Labeler
-on: [pull_request_target]
+on: 
+  pull_request:
+    types: opened
 
 jobs:
   label:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
