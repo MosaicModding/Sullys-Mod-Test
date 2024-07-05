@@ -1,0 +1,26 @@
+name: localization-checker
+on: 
+  pull_request:
+    types: [ labeled ]
+
+jobs: 
+  check:
+    if: ${{ github.event.label.name == 'localization' }}
+    runs-on: ubuntu-latest
+    permissions: 
+      pull-requests: read
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: dorny/paths-filter@v3.0.2
+      id: filter
+      with: 
+        filters: |
+          correct_folder:
+            - 'src/main/resources/assets/sullysmod/lang/**'
+    
+    - name: check_correct_path
+      if: steps.filter.outputs.correct_folder = false
+      run: echo "One or more language files are not in the correct folder! Please add the language file to src/main/resources/assets/sullysmod/lang/"
+          
+    
