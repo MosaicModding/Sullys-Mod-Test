@@ -1,0 +1,5 @@
+localization:
+- changed-files:
+  - any-glob-to-any-file: 
+    - src/generated/resources/assets/sullysmod/lang/**
+    - src/main/resources/assets/sullysmod/lang/**
