@@ -22,7 +22,7 @@ jobs:
             - 'src/main/resources/assets/sullysmod/lang/**'
     
     - name: check_correct_path
-      if: steps.filter.outputs.correct_folder = false
+      if: steps.filter.outputs.correct_folder == false
       run: echo "One or more language files are not in the correct folder! Please add the language file to src/main/resources/assets/sullysmod/lang/"
           
     
